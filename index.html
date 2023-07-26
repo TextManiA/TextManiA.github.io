@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TextManiA: Enriching Visual Feature by Text-driven Manifold Augmentation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({            
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
+    });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">TextManiA: Enriching Visual Feature by </p> Text-driven Manifold Augmentation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://sites.google.com/g.postech.edu/moon-ye-bin">Moon Ye-Bin</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://memesoo99.github.io/">Jisoo Kim</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://jonbarron.info">Hongyeob Kim</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=QkE4eVcAAAAJ&hl=en">Kilho Son</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ami.postech.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>POSTECH,</span>
+            <span class="author-block"><sup>2</sup>Columbia University,</span>
+            <span class="author-block"><sup>3</sup>Sungkyunkwan University,</span>
+            <span class="author-block"><sup>4</sup>Microsoft Azure</span>
+          </div>
+
+          <div>
+            <font size="4">
+            International Conference on Computer Vision (ICCV) 2023
+            </font>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/postech-ami/TextManiA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="./static/figures/teaser_fig.png"
+        class="interpolation-image"
+        alt="Interpolation end reference image."/>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">TextManiA</span> semantically enriches the target visual feature space by leveraging visually mimetic texts, 
+        encoded with general language models and transferred to the target visual feature space.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent label mix-based augmentation methods have shown their effectiveness in generalization despite their simplicity, and their favorable effects are often attributed to semantic-level augmentation. 
+            However, we found that they are vulnerable to highly skewed class distribution, because scarce data classes are rarely sampled for inter-class perturbation. 
+          </p>
+          <p>
+            We propose TextManiA, a text-driven manifold augmentation method that semantically enriches visual feature spaces, regardless of data distribution. 
+            TextManiA augments visual data with intra-class semantic perturbation by exploiting easy-to-understand visually mimetic words, i.e., attributes. 
+            To this end, we bridge between the text representation and a target visual feature space, and propose an efficient vector augmentation. 
+          </p>
+          <p>
+            To empirically support the validity of our design, we devise two visualization-based analyses and show the plausibility of the bridge between two different modality spaces. 
+            Our experiments demonstrate that TextManiA is powerful in scarce samples with class imbalance as well as even distribution. We also show compatibility with the label mix-based approaches in evenly distributed scarce data.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+        <h2 class="title is-3">Method</h2> <br>
+    <div class="columns is-centered has-text-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+            <img src="./static/figures/main.png"
+            class="interpolation-image"
+            alt="Interpolation end reference image."
+            width="500">
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <p>
+            <h4 class="title is-4">TextManiA</h4>
+        </p>
+        <ul style="list-style-type:disc">
+        <font size="4">
+            <li style="text-align:left">Visual feature augmentation by conveying attribute information from the text to visual feature space</li>
+            <li style="text-align:left">Intra-class semantic perturbation; densifying samples</li>
+            <li style="text-align:left">Helpful in augmenting sparse samples in long-tail case</li>
+            <li style="text-align:left">Complementary to other aug. in deficient data case</li>                  
+        </font>
+        </ul>
+        <br>
+        <p>
+            <h4 class="title is-4">Training Process</h4>
+        </p>
+        <p style="text-align:left">
+        <font size="4">
+            1. Given image $\mathbf{I}_0$ & label $T_0$ <br>
+            2. Synthesize text variant $T_1$ <br>
+            3. Compute difference vector $\mathbf{\Delta}_{0\to1}$ <br>
+            4. Add projected $\mathbf{\Delta}_{0\to1}$ with image feature $\mathbf{f}_{I_0}$ <br>
+            5. Train the model with augmented feature <br> &nbsp&nbsp&nbsp&nbsp $\hat{\mathbf{f}}_{I_0} = \mathbf{f}_{I_0} + \alpha\cdot \mathtt{proj}(\mathbf{\Delta}_{0\to1})$
+        </font>
+        </p>
+      </div>
+    </div>
+    <!--/ Matting. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+        <h2 class="title is-3">Characteristics of Difference Vector</h2> <br>
+    <div class="columns is-centered has-text-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+            <h2 class="title is-4">t-SNE Plot</h2>
+            <img src="./static/figures/tsne.png"
+            class="interpolation-image"
+            alt="Interpolation end reference image."
+            width="600">
+        </div>
+        <ul style="list-style-type:disc;">
+            <font size="4">
+                <li style="text-align:left">From the same attr. → clustered regardless of the class</li>
+                <li style="text-align:left">Slight difference → surrounding meaning left to some extent</li>
+            </font>
+        </ul>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+          <div class="content">
+            <h2 class="title is-4">Image Manipulation</h2>
+            <img src="./static/figures/manipulation.png"
+            class="interpolation-image"
+            alt="Interpolation end reference image."
+            width="600">
+          </div>
+          <ul style="list-style-type:disc;">
+          <font size="4">
+            <li style="text-align:left">Embed attribute while preserving semantics</li>
+            <li style="text-align:left">Similar effects to img-level augmentation by text w/o complicated operation</li>
+          </font>
+          </ul>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+    <br>
+    <!-- Acknowledgement. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Acknowledgement</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            This work was partly supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) 
+            (No.2021-0-02068, Artificial Intelligence Innovation Hub), 
+            (No.2022-0-00124, Development of Artificial Intelligence Technology for Self-Improving Competency-Aware Learning Capabilities), 
+            and (No. 2020-0-00004, Development of Previsional Intelligence based on Long-term Visual Memory Network).
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Acknowledgement. -->
+
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p> 
+          Source code mainly borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
